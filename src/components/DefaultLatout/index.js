@@ -41,12 +41,13 @@ const DefaultLayout = () => {
     ),
   ];
   const navigate = useNavigate();
-  // useEffect(() => {
-  //     const user = localStorage.getItem('token');
-  //     if (!user) {
-  //         navigate('/')
-  //     }
-  // }, [])
+  useEffect(() => {
+    const user = sessionStorage.getItem("user");
+    console.log(JSON.parse(user));
+    if (!user) {
+      navigate("/");
+    }
+  }, []);
   const showContentMenu = (routes) => {
     let result = null;
     if (routes) {
